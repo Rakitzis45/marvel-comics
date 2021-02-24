@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import SearchContainer from './containers/SearchContainer'
+import CharacterContainer from './containers/CharacterContainer'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+
+class App extends React.Component {
+
+  render() {
+    return (
+        <Router>
+          <div className="App">
+            <Route exact path='/search' component={SearchContainer} />
+            <Route exact path='/characters' component={CharacterContainer}/>
+            <a href="/search">Search again</a>
+          </div>
+        </Router>
+      );
+  }
 }
 
+
+
+  
 export default App;
