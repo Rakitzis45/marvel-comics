@@ -4,8 +4,30 @@ export default function reducer(state={}, action){
         //     return 
         // case "SEARCH_CHARACTER":
         //     return
+        case "START_ADDING_CHARACTERS_REQUEST":
+            return {
+                ...state, 
+                searched: [],
+                requesting: true
+            }
+        case "START_ADDING_CHARACTER_REQUEST":
+            return { 
+                ...state, 
+                character: [],
+                requesting: true
+            }
         case "ADD_SEARCH":
-            return {...state, searched: action.object}
+            return {
+                ...state, 
+                searched: action.characters.data.results,
+                requesting: false
+            }
+        case "ADD_CHARACTER":
+            return {
+                ...state, 
+                character: action.character.data.results[0],
+                requesting: false
+            }
         default:
             return state;
     }
