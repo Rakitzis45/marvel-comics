@@ -5,9 +5,24 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  float: left
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.characterShowImg {
+  width: 200px;
+  height: auto;
+  float: left;
+}
+
+span.comicContainer {
+  display: flex;
+  justify-content: left;
+}
+.comicList {
+  font-size: small;
 }
