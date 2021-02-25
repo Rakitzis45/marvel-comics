@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter} from 'react-router-dom';
+import { fetchCharacters } from '../../actions/fetchCharacters'
+import {connect} from 'react-redux'
 
 class SearchInput extends Component {
 
@@ -15,7 +17,7 @@ class SearchInput extends Component {
 
     onSubmit = (e) => {
         e.preventDefault()
-        this.props.apiCall(this.state.search_field)
+        this.props.fetchCharacters(this.state.search_field)
         this.props.history.push('/characters')
     }
 
@@ -27,10 +29,14 @@ class SearchInput extends Component {
                     <input type="text" value={this.state.search_field} onChange={this.onChange}/>
                     <input type="submit"/>
                 </form>
-                {this.state.search_field}
             </>
         )
     }
 }
 
-export default withRouter(SearchInput)
+function mapDispatchToProps(dispatch){
+    return {fetchCharacters: (string) => dispatch(fetchCharacters(string))}
+}
+export default withRouter(connect(null, mapDispatchToProps)(SearchInput))
+// export default connect(null, mapDisptachToProps)(SearchInput)
+ 
