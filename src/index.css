@@ -19,10 +19,22 @@ code {
   float: left;
 }
 
+.comicShowImg {
+  width: 200px;
+  height: auto;
+  float: left;
+}
+
 span.comicContainer {
   display: flex;
   justify-content: left;
 }
 .comicList {
   font-size: small;
+}
+
+.comicCharacters {
+  font-size: small;
+  display: flex;
+  justify-content: left
 }
