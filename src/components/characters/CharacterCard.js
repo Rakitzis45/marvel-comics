@@ -36,7 +36,6 @@ export default class CharacterCard extends Component {
         let character = this.props.character
         return (
             <div>
-                {console.log(character)}
                 <h1>{character.name}</h1>
                 
                 <div className="characterInformation">
@@ -45,8 +44,6 @@ export default class CharacterCard extends Component {
                     <p className='characterComics'> 
                         {this.displayComics()}
                     </p>
-                    {console.log(character.urls[0].url)}
-            
                     <p>{this.displayOfficalPage()}</p>
                 </div>
             </div>
