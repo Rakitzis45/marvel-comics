@@ -13,7 +13,7 @@ export default function reducer(state={}, action){
         case "START_ADDING_CHARACTER_REQUEST":
             return { 
                 ...state, 
-                character: [],
+                character: "",
                 requesting: true
             }
         case "ADD_SEARCH":
@@ -24,8 +24,20 @@ export default function reducer(state={}, action){
             }
         case "ADD_CHARACTER":
             return {
-                ...state, 
+                ...state,
                 character: action.character.data.results[0],
+                requesting: false
+            }
+        case "START_ADDING_COMIC_REQUEST":
+            return {
+                ...state, 
+                comic: "",
+                requesting: true
+        }
+        case "ADD_COMIC":
+            return {
+                ...state, 
+                comic: action.comic.data.results[0],
                 requesting: false
             }
         default:
