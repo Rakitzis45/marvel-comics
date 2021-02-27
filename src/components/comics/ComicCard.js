@@ -11,7 +11,6 @@ export default class ComicCard extends Component {
         )
     }
 
-    // "2011-04-27T00:00:00-0400"
     displayDate = (date) => {
         return (date.split('T')[0])
     }
@@ -25,7 +24,7 @@ export default class ComicCard extends Component {
             
             <div>
                 <h1>{comic.title}</h1>
-                <img className='comicShowImg' src={comic.thumbnail.path + ".jpg"}/>
+                <img className='comicShowImg' src={comic.thumbnail.path + ".jpg"} alt="comicCover"/>
                 <div className='comicDescription'>
                     <strong>Description: </strong> {comic.description} <br/>
                     <strong>Release Date: </strong> {this.displayDate(comic.dates[0].date)}<br/>
