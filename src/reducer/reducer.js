@@ -1,26 +1,40 @@
 export default function reducer(state={}, action){
     switch (action.type){
-        // case "START_SEARCH":
-        //     return 
-        // case "SEARCH_CHARACTER":
-        //     return
+
         case "START_ADDING_CHARACTERS_REQUEST":
             return {
                 ...state, 
                 searched: [],
                 requesting: true
             }
+        case "ADD_SEARCH_CHARACTERS":
+            return {
+                ...state, 
+                searched: action.characters.data.results,
+                requesting: false
+            }
+
+
+
+        case "START_ADDING_COMICS_REQUEST":
+            return {
+                ...state, 
+                searched: [],
+                requesting: true
+            }
+        case "ADD_SEARCH_COMICS":
+            return {
+                ...state, 
+                searched: action.comics.data.results,
+                requesting: false
+            }
+
+
         case "START_ADDING_CHARACTER_REQUEST":
             return { 
                 ...state, 
                 character: "",
                 requesting: true
-            }
-        case "ADD_SEARCH":
-            return {
-                ...state, 
-                searched: action.characters.data.results,
-                requesting: false
             }
         case "ADD_CHARACTER":
             return {
@@ -28,6 +42,8 @@ export default function reducer(state={}, action){
                 character: action.character.data.results[0],
                 requesting: false
             }
+
+
         case "START_ADDING_COMIC_REQUEST":
             return {
                 ...state, 
