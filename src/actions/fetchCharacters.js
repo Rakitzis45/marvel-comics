@@ -9,6 +9,6 @@ export function fetchCharacters(string) {
         
         fetch(`https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${string}&apikey=7d4cc4c53258b0c0a55297421f2f233f&hash=${hash}`)
         .then(resp => resp.json())
-        .then(characters => dispatch({type: 'ADD_SEARCH', characters}))
+        .then(characters => dispatch({type: 'ADD_SEARCH_CHARACTERS', characters}))
     }
 }
