@@ -26,7 +26,7 @@ export default class CharacterCard extends Component {
             }
         })
         if (link){
-            return (<a href={link.url} target="_blank">Offical Page</a>)
+            return (<a href={link.url} target="_blank" rel="noreferrer">Offical Page</a>)
         }
         
     }
@@ -39,7 +39,7 @@ export default class CharacterCard extends Component {
                 <h1>{character.name}</h1>
                 
                 <div className="characterInformation">
-                    <img className="characterShowImg"src={character.thumbnail.path + ".jpg"}/>
+                    <img className="characterShowImg"src={character.thumbnail.path + ".jpg"} alt="characterImg"/>
                     <p className='characterDescription'> <strong>Description:</strong>  {character.description}</p>
                     <p className='characterComics'> 
                         {this.displayComics()}
