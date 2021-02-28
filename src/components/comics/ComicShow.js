@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchComic } from '../../actions/fetchComic'
 import ComicCard from './ComicCard'
+import CommentContainer from '../../containers/CommentContainer'
 
 
 class ComicShow extends Component {
@@ -14,6 +15,7 @@ class ComicShow extends Component {
         if (this.props.requesting === false){
             return <div>
                 <ComicCard comic={this.props.comic}/>
+                <CommentContainer/>
                 </div>
         } else {
             return <div>Loading</div>
