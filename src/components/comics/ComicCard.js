@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
-export default class ComicCard extends Component {
+export default class ComicCard extends PureComponent {
     
     displayCharacters = () => {
         let characters = this.props.comic.characters.items
         return (
             <ol>
-                {characters.map(character => <li><a href={`/characters/${character.resourceURI.split('/')[6]}`}>{character.name}</a></li>)}
+                {characters.map((character, index) => <li key={index}><a href={`/characters/${character.resourceURI.split('/')[6]}`}>{character.name}</a></li>)}
             </ol>
         )
     }
