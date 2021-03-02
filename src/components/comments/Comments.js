@@ -1,28 +1,33 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Comment from './Comment';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
+// import { fetchComments } from '../../actions/fetchComments'
 
-class Comments extends Component {
-
-    componentDidMount(){
-        //have to fetch comments from the backend
-    }
-    
+class Comments extends PureComponent {
 
     render(){
         return (
             <> 
                 <h1>Comments</h1>
-                {/* <ol> {this.props.comments.map(comment => <Comment comment={comment}/>)} </ol> */}
+                <ul> 
+                    {this.props.comments.map((comment, index) => <Comment key={index} comment={comment}/>)} 
+                </ul>
             </>
         )
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        comments: state.comments
-    }
-}
+// const mapStateToProps = (state) => {
+//     return {
+//         comments: state.comments
+//     }
+// }
 
-export default connect(mapStateToProps)(Comments)
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         fetchComments: () => dispatch(fetchComments())
+//     }
+// }
+
+export default (Comments)
+// export default connect(mapStateToProps, mapDispatchToProps)(Comments)
