@@ -9,8 +9,8 @@ export function submitComment(object){
         body: JSON.stringify({
             comment: {
                 character_comic_id: id,
-                name: object.comment_name,
-                post: object.comment_post
+                name: object.name,
+                post: object.post
             }
         })
     })
