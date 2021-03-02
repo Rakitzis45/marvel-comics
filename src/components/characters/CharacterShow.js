@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { fetchCharacter } from '../../actions/fetchCharacter'
 import { connect } from 'react-redux'
 import CharacterCard from './CharacterCard'
+import CommentContainer from '../../containers/CommentContainer'
 
 class CharacterShow extends Component {
 
@@ -13,6 +14,7 @@ class CharacterShow extends Component {
         if (this.props.requesting === false){
             return <div>
                 <CharacterCard character={this.props.character}/>
+                <CommentContainer/>
                 </div>
         } else {
             return <div>Loading</div>
