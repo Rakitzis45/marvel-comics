@@ -1,4 +1,6 @@
-export default function reducer(state={}, action){
+export default function reducer(state={
+    comments: []
+}, action){
     switch (action.type){
 
         case "START_ADDING_CHARACTERS_REQUEST":
@@ -14,7 +16,30 @@ export default function reducer(state={}, action){
                 requesting: false
             }
 
-
+        case "START_ADDING_COMMENTS_REQUEST":
+            return {
+                ...state, 
+                loading: true
+            }
+        case "ADD_COMMENTS":
+            return {
+                ...state, 
+                comments: action.comments,
+                loading: false
+            }
+        
+        // case "START_ADDING_COMMENT_REQUEST":
+        //     return {
+        //         ...state,
+        //         loadingComment: true
+        //     }
+        case "ADD_COMMENT":
+            debugger
+            return {
+                ...state, 
+                comments: [...state.comments, action.object],
+                // loadingComment: false
+            }
 
         case "START_ADDING_COMICS_REQUEST":
             return {
