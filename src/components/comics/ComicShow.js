@@ -1,15 +1,16 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { fetchComic } from '../../actions/fetchComic'
 import ComicCard from './ComicCard'
 import CommentContainer from '../../containers/CommentContainer'
 
 
-class ComicShow extends Component {
+class ComicShow extends PureComponent {
 
     componentDidMount(){
         this.props.fetchComic(document.location.pathname.split('/')[2])
     }
+
 
     loading = () => {
         if (this.props.requesting === false){
@@ -23,6 +24,7 @@ class ComicShow extends Component {
     }
      
     render() {
+        console.log(this.props.requesting);
         return(
             <div>
                 {this.loading()}
