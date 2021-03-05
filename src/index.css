@@ -25,7 +25,7 @@ code {
   float: left;
 }
 
-span.comicContainer {
+.comicContainer {
   display: flex;
   justify-content: left;
 }
