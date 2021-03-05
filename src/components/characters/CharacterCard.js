@@ -40,11 +40,11 @@ export default class CharacterCard extends Component {
                 
                 <div className="characterInformation">
                     <img className="characterShowImg"src={character.thumbnail.path + ".jpg"} alt="characterImg"/>
-                    <p className='characterDescription'> <strong>Description:</strong>  {character.description}</p>
-                    <p className='characterComics'> 
+                    <span className='characterDescription'> <strong>Description:</strong>  {character.description}</span>
+                    <span className='characterComics'> 
                         {this.displayComics()}
-                    </p>
-                    <p>{this.displayOfficalPage()}</p>
+                    </span>
+                    <span>{this.displayOfficalPage()}</span>
                 </div>
             </div>
         )
