@@ -11,25 +11,15 @@ class CommentContainer extends PureComponent {
         this.props.fetchComments()
     }
 
-    // shouldComponentUpdate(nextState){
-    //     debugger
-    //     if (this.props.comments !== nextState.comments){
-    //         debugger
-    //         return true
-    //     }
-    //     return false
-    // }
-
     handleClick = (e) => {
         this.props.fetchComments()
     }
 
-    render(){
-        return ( 
-            <div>
-                <button onClick={this.handleClick}>Comments</button>
-                <CommentInput/>
-                <Comments comments={this.props.comments}/>
+    render() {
+        return (
+            <div className="row align-items-center my-5 be-comment-block border border-secondary">
+                <CommentInput />
+                <Comments comments={this.props.comments} />
             </div>
         )
     }
@@ -48,4 +38,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps )(CommentContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(CommentContainer)

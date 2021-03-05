@@ -12,7 +12,7 @@ class CharacterShow extends Component {
 
     loading = () => {
         if (this.props.requesting === false){
-            return <div>
+            return <div className="container">
                 <CharacterCard character={this.props.character}/>
                 <CommentContainer/>
                 </div>

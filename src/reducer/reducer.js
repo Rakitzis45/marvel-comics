@@ -28,17 +28,11 @@ export default function reducer(state={
                 loading: false
             }
         
-        // case "START_ADDING_COMMENT_REQUEST":
-        //     return {
-        //         ...state,
-        //         loadingComment: true
-        //     }
         case "ADD_COMMENT":
-            debugger
+            
             return {
                 ...state, 
                 comments: [...state.comments, action.object],
-                // loadingComment: false
             }
 
         case "START_ADDING_COMICS_REQUEST":
