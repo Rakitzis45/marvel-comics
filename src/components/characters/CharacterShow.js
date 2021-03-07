@@ -3,26 +3,32 @@ import { fetchCharacter } from '../../actions/fetchCharacter'
 import { connect } from 'react-redux'
 import CharacterCard from './CharacterCard'
 import CommentContainer from '../../containers/CommentContainer'
+import Navbar from '../navbar/Navbar'
 
 class CharacterShow extends Component {
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.fetchCharacter(document.location.pathname.split('/')[2])
     }
 
     loading = () => {
-        if (this.props.requesting === false){
-            return <div className="container">
-                <CharacterCard character={this.props.character}/>
-                <CommentContainer/>
-                </div>
+        if (this.props.requesting === false) {
+            return (
+                <>
+                    <Navbar />
+                    <div className="container">
+                        <CharacterCard character={this.props.character} />
+                        <CommentContainer />
+                    </div>
+                </>
+            )
         } else {
             return <div>Loading</div>
         }
     }
-     
+
     render() {
-        return(
+        return (
             <div>
                 {this.loading()}
             </div>
@@ -30,13 +36,13 @@ class CharacterShow extends Component {
     }
 }
 
-function mapDispatchToProps(dispatch){
-    return {fetchCharacter: (string) => dispatch(fetchCharacter(string))}
-     
+function mapDispatchToProps(dispatch) {
+    return { fetchCharacter: (string) => dispatch(fetchCharacter(string)) }
+
 }
 
 const mapStateToProps = (state) => {
-    return{
+    return {
         // character: state.character,
         character: state.character,
         requesting: state.requesting
