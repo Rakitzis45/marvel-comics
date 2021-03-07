@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { fetchCharacters } from '../../actions/fetchCharacters'
 import { fetchComics } from '../../actions/fetchComics'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 class SearchInput extends Component {
 
@@ -21,7 +21,7 @@ class SearchInput extends Component {
         this.setState({
             search_comic: event.target.value
         })
-        
+
     }
 
     onSubmitCharacter = (e) => {
@@ -36,32 +36,32 @@ class SearchInput extends Component {
         this.props.history.push('/comics')
     }
 
-    render(){
+    render() {
         return (
             <>
                 <form onSubmit={this.onSubmitCharacter}>
                     <label>Search Characters: </label>
-                    <input type="text" value={this.state.search_character} onChange={this.characterChange}/>
-                    <input type="submit"/>
+                    <input type="text" value={this.state.search_character} onChange={this.characterChange} />
+                    <input type="submit" />
                 </form>
-                <br/>
+                <br />
                 <form onSubmit={this.onSubmitComic}>
                     <label>Search Comics: </label>
-                    <input type="text" value={this.state.search_comic} onChange={this.comicChange}/>
-                    <input type="submit"/>
+                    <input type="text" value={this.state.search_comic} onChange={this.comicChange} />
+                    <input type="submit" />
                 </form>
-                
+
             </>
         )
     }
 }
 
-function mapDispatchToProps(dispatch){
+function mapDispatchToProps(dispatch) {
     return {
         fetchCharacters: (string) => dispatch(fetchCharacters(string)),
         fetchComics: (string) => dispatch(fetchComics(string))
     }
 }
 export default withRouter(connect(null, mapDispatchToProps)(SearchInput))
-// export default connect(null, mapDisptachToProps)(SearchInput)
- 
+
+
