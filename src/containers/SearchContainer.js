@@ -9,8 +9,10 @@ class SearchContainer extends Component {
 
     render(){
         return (
-            <div>
+            <div className="border border-secondary">
+                <h1>Character and Comic Search</h1><br/>
                 <SearchInput fetchCharacters={this.props.fetchCharacters}/>
+                <br/>
             </div>
         )
     }
