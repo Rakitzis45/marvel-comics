@@ -34,7 +34,7 @@ export default class CharacterCard extends Component {
     render() {
         let character = this.props.character
         return (
-            <div className="row alight-items-center my-5">
+            <div className="row align-items-center my-5">
                 <div className="col-lg-7">
                     <img className="img-fluid rounded mb-4 mb-lg-0" src={character.thumbnail.path + ".jpg"} alt="characterImg" />
                 </div>

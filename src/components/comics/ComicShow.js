@@ -3,29 +3,34 @@ import { connect } from 'react-redux'
 import { fetchComic } from '../../actions/fetchComic'
 import ComicCard from './ComicCard'
 import CommentContainer from '../../containers/CommentContainer'
-
+import Navbar from '../navbar/Navbar'
 
 class ComicShow extends PureComponent {
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.fetchComic(document.location.pathname.split('/')[2])
     }
 
 
     loading = () => {
-        if (this.props.requesting === false){
-            return <div>
-                <ComicCard comic={this.props.comic}/>
-                <CommentContainer/>
-                </div>
+        if (this.props.requesting === false) {
+            return (
+                <>
+                    <Navbar />
+                    <div className="container">
+                        <ComicCard comic={this.props.comic} />
+                        <CommentContainer />
+                    </div>
+                </>
+            )
         } else {
             return <div>Loading</div>
         }
     }
-     
+
     render() {
         console.log(this.props.requesting);
-        return(
+        return (
             <div>
                 {this.loading()}
             </div>
@@ -33,8 +38,8 @@ class ComicShow extends PureComponent {
     }
 }
 
-function mapDispatchToProps(dispatch){
-    return {fetchComic: (string) => dispatch(fetchComic(string))}
+function mapDispatchToProps(dispatch) {
+    return { fetchComic: (string) => dispatch(fetchComic(string)) }
 }
 
 const mapStateToProps = (state) => {
