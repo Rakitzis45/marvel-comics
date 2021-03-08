@@ -1,4 +1,4 @@
-export function submitComment(object){
+export function submitComment(object) {
     let id = object.id
     fetch(`http://localhost:3000/comments`, {
         method: "POST",

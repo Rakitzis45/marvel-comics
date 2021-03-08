@@ -1,57 +1,57 @@
-export default function reducer(state={
+export default function reducer(state = {
     comments: []
-}, action){
-    switch (action.type){
+}, action) {
+    switch (action.type) {
 
         case "START_ADDING_CHARACTERS_REQUEST":
             return {
-                ...state, 
+                ...state,
                 searched: [],
                 requesting: true
             }
         case "ADD_SEARCH_CHARACTERS":
             return {
-                ...state, 
+                ...state,
                 searched: action.characters.data.results,
                 requesting: false
             }
 
         case "START_ADDING_COMMENTS_REQUEST":
             return {
-                ...state, 
+                ...state,
                 loading: true
             }
         case "ADD_COMMENTS":
             return {
-                ...state, 
+                ...state,
                 comments: action.comments,
                 loading: false
             }
-        
+
         case "ADD_COMMENT":
-            
+
             return {
-                ...state, 
+                ...state,
                 comments: [...state.comments, action.object],
             }
 
         case "START_ADDING_COMICS_REQUEST":
             return {
-                ...state, 
+                ...state,
                 searched: [],
                 requesting: true
             }
         case "ADD_SEARCH_COMICS":
             return {
-                ...state, 
+                ...state,
                 searched: action.comics.data.results,
                 requesting: false
             }
 
 
         case "START_ADDING_CHARACTER_REQUEST":
-            return { 
-                ...state, 
+            return {
+                ...state,
                 character: "",
                 requesting: true
             }
@@ -65,13 +65,13 @@ export default function reducer(state={
 
         case "START_ADDING_COMIC_REQUEST":
             return {
-                ...state, 
+                ...state,
                 comic: "",
                 requesting: true
-        }
+            }
         case "ADD_COMIC":
             return {
-                ...state, 
+                ...state,
                 comic: action.comic.data.results[0],
                 requesting: false
             }
@@ -79,5 +79,3 @@ export default function reducer(state={
             return state;
     }
 }
-
-// https://gateway.marvel.com:443/v1/public/characters?name=spider-man&apikey=7d4cc4c53258b0c0a55297421f2f233f
