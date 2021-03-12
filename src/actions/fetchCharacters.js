@@ -9,7 +9,7 @@ export function fetchCharacters(string) {
         console.log(hash)
         fetch(`https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${string}&apikey=${process.env.REACT_APP_API_PUBLIC_KEY}&hash=${hash}`)
             // .then(resp => resp.json())
-            .then(console.log(resp))
+            .then(resp => console.log(resp))
             // .then(characters => dispatch({ type: 'ADD_SEARCH_CHARACTERS', characters }))
     }
 }
