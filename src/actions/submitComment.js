@@ -1,6 +1,6 @@
 export function submitComment(object) {
     let id = object.id
-    fetch(`http://localhost:3000/comments`, {
+    fetch(`https://marvelcomicssearch.herokuapp.com/comments/`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
