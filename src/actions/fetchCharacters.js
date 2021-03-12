@@ -8,7 +8,9 @@ export function fetchCharacters(string) {
         // console.log(process.env.REACT_APP_API_PRIVATE_KEY)
         // console.log(process.env.REACT_APP_API_PUBLIC_KEY)
         // console.log(hash)
-        fetch(`https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${string}&apikey=${process.env.REACT_APP_API_PUBLIC_KEY}&hash=${hash}`)
+        let url = `https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${string}&apikey=${process.env.REACT_APP_API_PUBLIC_KEY}&hash=${hash}`
+        console.log(url)
+        fetch(url)
             .then(resp => resp.json())
             // .then(resp => console.log(resp))
             .then(characters => dispatch({ type: 'ADD_SEARCH_CHARACTERS', characters }))
